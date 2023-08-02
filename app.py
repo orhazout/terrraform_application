@@ -47,7 +47,6 @@ def page_not_found(e):
 def data():
     conn = create_connection()
     cur = conn.cursor()
-
     name = None
     form = NameForm()
     if form.validate_on_submit():
@@ -55,10 +54,14 @@ def data():
         if pets is None:
             cur.execute("INSERT INTO data (name, weight_value, mytime) VALUES (%s, %s, %s)", (form.name.data, form.weight.data, form.time.data))
             conn.commit()
+            cur.close()
+        conn.close()
         name = form.name.data
         form.name.data = ''
         form.weight.data = ''
         form.time.data = ''
+    conn = create_connection()
+    cur = conn.cursor()
     cur.execute("SELECT * FROM data")
     our_pets= cur.fetchall()
     cur.close()
