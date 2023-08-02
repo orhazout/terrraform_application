@@ -1,0 +1,41 @@
+{% extends 'index.html' %}
+
+{% block content %}
+{% if name %}
+    <h1> Hello {{ name }}!!</h1>
+    <br/><br/>
+    <p id="demo">This is stuff...</p>
+<script src=" {{ url_for('static' , filename='js/myfile.js') }}"></script>
+
+{% else %}
+    <h1> list of pets :</h1>
+    <br/>
+<div class="shadow p-3 mb-5 bg-body rounded">
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        {{ form.name.label(
+        class="form-label")}}
+        {{ form.name(
+        class="form-control") }}
+        <br/>
+        {{ form.weight.label(
+        class="form-label")}}
+        {{ form.weight(
+        class="form-control") }}
+        <br/>
+        {{ form.time.label(
+        class="form-label")}}
+        {{ form.time(
+        class="form-control") }}
+        <br/>
+        {{ form.submit(class="btn
+        btn-dark") }}
+    </form>
+</div>
+<br/><br/><br/>
+{% for our_pets in our_pets %}
+    {{ ourpets.name }} - {{ ourpets.weight_value }} - {{ ourpets.mytime }}
+    <br/>
+{% endfor %}
+{% endif %}
+{% endblock %}
