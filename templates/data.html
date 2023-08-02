@@ -33,8 +33,8 @@
     </form>
 </div>
 <br/><br/><br/>
-{% for our_pets in our_pets %}
-    {{ ourpets.name }} - {{ ourpets.weight_value }} - {{ ourpets.mytime }}
+{% for pet in our_pets %}
+    {{ pet[0] }} - {{ pet[1] }} - {{ pet[2] }}
     <br/>
 {% endfor %}
 {% endif %}
