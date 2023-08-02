@@ -62,8 +62,6 @@ def data():
         form.time.data = ''`
     cur.execute("SELECT * FROM data")
     our_pets= cur.fetchall()
-    cur.close()
-    conn.close()
     return render_template("data.html", form = form, name = name, our_pets=our_pets)
 
 
