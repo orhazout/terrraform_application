@@ -4,13 +4,13 @@
 {% if name %}
     <h1> Your Pet Has Added !</h1>
     <br/><br/>
-<table class="'table table-hover table-bordered table-striped">
-{% for our_pets in our_pets %}
+    <table class="'table table-hover table-bordered table-striped">
+    {% for our_pets in our_pets %}
     <tr>
     <td>{{ pet[0] }} - {{ pet[1] }} - {{ pet[2] }}</td>
     </tr>
-{% endfor %}
-</table>
+    {% endfor %}
+    </table>
 {% else %}
     <h1> list of pets :</h1>
     <br/>
