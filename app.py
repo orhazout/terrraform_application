@@ -59,9 +59,7 @@ def data():
         name = form.name.data
         form.name.data = ''
         form.weight.data = ''
-        form.time.data = ''
-    conn = create_connection()
-    cur = conn.cursor()
+        form.time.data = ''`
     cur.execute("SELECT * FROM data")
     our_pets= cur.fetchall()
     cur.close()
